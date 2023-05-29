@@ -1,4 +1,4 @@
-package com.example.frisoerprojektbackend.exception;
+package com.example.eksamenbackendbenjamin.exception;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.example.frisoerprojektbackend.exception;
+package com.example.eksamenbackendbenjamin.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,6 @@ public class ControllerExceptionHandler {
 
     // Vores http kald vil vi gerne have returner en responseEntity, så vi laver vores exceptions om til at return en responseentity.
     // så vi med det entity kan forklare hvad der gik galt hvis der skete en exception.
-
     // Her kommer alle exceptions igennem, en global handler.
     @ExceptionHandler(Exception.class)
     ResponseEntity<ErrorMessage> globalExceptionHandler(Exception ex, WebRequest request) {
