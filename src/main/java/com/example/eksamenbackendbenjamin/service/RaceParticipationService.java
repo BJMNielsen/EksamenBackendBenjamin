@@ -3,7 +3,6 @@ package com.example.eksamenbackendbenjamin.service;
 import com.example.eksamenbackendbenjamin.dto.BoatsInRaceDTO;
 import com.example.eksamenbackendbenjamin.dto.RaceParticipationDTOShowRacesForOneBoat;
 import com.example.eksamenbackendbenjamin.model.RaceParticipation;
-import com.example.eksamenbackendbenjamin.model.SailRace;
 import com.example.eksamenbackendbenjamin.repository.RaceParticipationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,12 +50,12 @@ public class RaceParticipationService {
 
             boatsInRaceDTO.setSailRaceId(raceParticipation.getSailRace().getId());
             boatsInRaceDTO.setSailRaceName(raceParticipation.getSailRace().getName());
-            boatsInRaceDTO.setSailRaceDate(raceParticipation.getSailRace().getDato());
+            boatsInRaceDTO.setSailRaceDate(raceParticipation.getSailRace().getSailRaceDate());
 
             boatsInRaceDTO.setSailBoatId(raceParticipation.getSailBoat().getId());
             boatsInRaceDTO.setSailBoatName(raceParticipation.getSailBoat().getName());
             boatsInRaceDTO.setBoatType(raceParticipation.getSailBoat().getBoatType());
-            boatsInRaceDTO.setPoints(raceParticipation.getPoints());
+            boatsInRaceDTO.setPoints(raceParticipation.getSailBoat().getPoints());
 
             listOfDTO.add(boatsInRaceDTO);
         }

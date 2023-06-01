@@ -118,17 +118,17 @@ public class StartupDataConfig implements ApplicationRunner{
 
         SailRace ultimateRace = new SailRace();
         ultimateRace.setName("Ultimate Race");
-        ultimateRace.setDato(LocalDate.now());
+        ultimateRace.setSailRaceDate(LocalDate.now());
         sailRaceRepository.save(ultimateRace);
 
         SailRace børgesSejlKonkurrence = new SailRace();
         børgesSejlKonkurrence.setName("Børges Sejlkonkurrence");
-        børgesSejlKonkurrence.setDato(LocalDate.now());
+        børgesSejlKonkurrence.setSailRaceDate(LocalDate.now());
         sailRaceRepository.save(børgesSejlKonkurrence);
 
         SailRace eksamensSejllads = new SailRace();
         eksamensSejllads.setName("Eksamens Store Sejlladskonkurrence");
-        eksamensSejllads.setDato(LocalDate.now());
+        eksamensSejllads.setSailRaceDate(LocalDate.now());
         sailRaceRepository.save(eksamensSejllads);
     }
 }

@@ -30,7 +30,7 @@ public class RaceParticipationController {
         return raceParticipationService.getRaceParticipationForBoat(id);
     }
 
-    @GetMapping("/raceparticipation/race/{raceId}")
+    @GetMapping("/boats/race/{raceId}")
     public List<BoatsInRaceDTO> getAllBoatsInRace(@PathVariable int raceId) {
         return raceParticipationService.findAllBoatsInRace(raceId);
     }

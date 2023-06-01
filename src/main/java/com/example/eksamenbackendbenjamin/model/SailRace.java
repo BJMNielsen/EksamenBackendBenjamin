@@ -17,9 +17,9 @@ import java.util.List;
 @Entity
 public class SailRace {
 
-    public SailRace(String name, LocalDate dato){
+    public SailRace(String name, LocalDate sailRaceDate){
         this.name = name;
-        this.dato = dato;
+        this.sailRaceDate = sailRaceDate;
     }
 
     @Id
@@ -29,7 +29,7 @@ public class SailRace {
 
     private String name;
 
-    private LocalDate dato;
+    private LocalDate sailRaceDate;
 
     // One Race to many RaceParticipations
     @OneToMany(mappedBy = "sailRace", cascade = CascadeType.REMOVE)
