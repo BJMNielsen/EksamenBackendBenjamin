@@ -1,6 +1,5 @@
 package com.example.eksamenbackendbenjamin.model;
 
-import com.example.eksamenbackendbenjamin.exception.ResourceNotFoundException;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,7 +31,7 @@ public class SailBoat {
     // Vi mapper til vores variabel sailBoat inde i RaceParticipation
     @OneToMany(mappedBy = "sailBoat", cascade = CascadeType.REMOVE) // Hvis en sailBoat bliver deleted, så bliver alle RaceParticipation der hører til sailBoaten også slettet
     @JsonBackReference // for at undgå infinity loop
-    private List<RaceParticipation> raceListSailBoat;
+    private List<RaceParticipation> sailBoatRaceList;
 
     public SailBoat(String name, String boatType){
         this.name = name;

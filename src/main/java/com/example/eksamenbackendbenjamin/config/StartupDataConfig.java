@@ -36,10 +36,31 @@ public class StartupDataConfig implements ApplicationRunner{
         createRaces();
         List<SailBoat> listOfBoats = createSailBoats();
 
+        //Vi laver en sejlbåd der er med i alle races
+        SailBoat sailBoatForEveryRace = new SailBoat("Uma Jolie", "25fod");
+        createSailBoatInEveryRace(sailBoatForEveryRace);
+
         for (SailBoat sailBoat: listOfBoats){
             System.out.println(sailBoat.getId() + ": " + sailBoat.getName());
             createRaceParticipation(sailBoat);
         }
+    }
+
+    //Skriv en metode der kan oprette en sejlbåd som deltager i alle kapsejladser.
+    public void createSailBoatInEveryRace(SailBoat sailBoat){
+        SailBoat newSailBoat = sailBoat;
+        sailBoatRepository.save(newSailBoat);
+
+        List<SailRace> allRaces = sailRaceRepository.findAll();
+
+        for (SailRace race: allRaces){
+            RaceParticipation raceParticipation = new RaceParticipation();
+            raceParticipation.setSailBoat(newSailBoat);
+            raceParticipation.setSailRace(race);
+            raceParticipationRepository.save(raceParticipation);
+        }
+
+
     }
 
     public void createRaceParticipation(SailBoat sailBoat){
