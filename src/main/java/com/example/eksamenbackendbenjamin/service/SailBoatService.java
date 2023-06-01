@@ -51,7 +51,7 @@ public class SailBoatService {
         //addRaceParticipationToSailBoat(raceList, newSailBoatSaved);
         return new ResponseEntity<>(newSailBoatSaved, HttpStatus.OK);
     }
-
+/*
     private void addRaceParticipationToSailBoat(List<SailRace> raceList, SailBoat sailBoat) {
     List<RaceParticipation> listOfSavedRaceParticipation = new ArrayList<>();
 
@@ -65,7 +65,7 @@ public class SailBoatService {
 
         }
     }
-
+*/
 
     public ResponseEntity<SailBoat> updateSailBoat(SailBoat sailBoat) {
         // Først tjekker vi om Sailboat allerede eksistere, så vi ikke overrider den hvis den eksistere.
@@ -74,6 +74,11 @@ public class SailBoatService {
             // Hvis den ikke existere thrower vi en exception der bliver grebet i vores exception controller og lavet til et responseEntity object, som vores frontend også kan håndtere.
             throw new ResourceNotFoundException("Sailboat with id: " + sailBoat.getId() + " does not exist and therefore can't be updated");
         }
+        SailBoat oldSailBoat = getSailBoatById(sailBoat.getId());
+        sailBoat.setBoatType(oldSailBoat.getBoatType());
+        sailBoat.setName(oldSailBoat.getName());
+        sailBoat.setPoints(oldSailBoat.getPoints() + sailBoat.getPoints());
+
         // Hvis Sailboat eksistere, tager vi den nye info fra vores requestbody og overwriter vores sailboat nu med den nye info, dvs vi saver oveni en allerede eksisterende sailboat, bare med ny info.
         SailBoat newSailBoat = sailBoatRepository.save(sailBoat);
         return new ResponseEntity<>(newSailBoat, HttpStatus.OK);

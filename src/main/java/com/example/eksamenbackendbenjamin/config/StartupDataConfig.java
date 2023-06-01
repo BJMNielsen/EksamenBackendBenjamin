@@ -115,7 +115,6 @@ public class StartupDataConfig implements ApplicationRunner{
     }
 
     public void createRaces(){
-
         SailRace ultimateRace = new SailRace();
         ultimateRace.setName("Ultimate Race");
         ultimateRace.setSailRaceDate(LocalDate.now());

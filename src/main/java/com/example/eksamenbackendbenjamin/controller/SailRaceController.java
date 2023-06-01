@@ -5,9 +5,8 @@ import com.example.eksamenbackendbenjamin.model.SailRace;
 import com.example.eksamenbackendbenjamin.service.SailBoatService;
 import com.example.eksamenbackendbenjamin.service.SailRaceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +22,17 @@ public class SailRaceController {
     public List<SailRace> getAllSailRaces(){
         return sailRaceService.getAllSailRaces();
     }
+
+    @GetMapping("/sailrace/{id}")
+    public SailRace getSailRace(@PathVariable int id) {
+        return sailRaceService.getSailRaceById(id);
+    }
+
+    // SLET ET RACE \\
+    @DeleteMapping("/sailrace/{id}")
+    public ResponseEntity<SailRace> deleteSailRace(@PathVariable int id) {
+        return sailRaceService.deleteSailRace(id);
+    }
+
 }
+
