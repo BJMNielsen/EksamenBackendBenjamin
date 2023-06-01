@@ -1,6 +1,6 @@
 package com.example.eksamenbackendbenjamin.controller;
 
-import com.example.eksamenbackendbenjamin.dto.RaceParticipationDTO;
+import com.example.eksamenbackendbenjamin.dto.BoatsInRaceDTO;
 import com.example.eksamenbackendbenjamin.dto.RaceParticipationDTOShowRacesForOneBoat;
 import com.example.eksamenbackendbenjamin.model.RaceParticipation;
 import com.example.eksamenbackendbenjamin.service.RaceParticipationService;
@@ -21,12 +21,19 @@ public class RaceParticipationController {
     RaceParticipationService raceParticipationService;
 
     @GetMapping("/raceparticipation")
-    public List<RaceParticipation> getAllSailboats(){
+    public List<RaceParticipation> getAllSailboats() {
         return raceParticipationService.getAllRaceParticipations();
     }
 
     @GetMapping("/raceparticipation/{id}")
-    public List<RaceParticipationDTOShowRacesForOneBoat> getRaceparticipationForBoat(@PathVariable int id){
+    public List<RaceParticipationDTOShowRacesForOneBoat> getRaceparticipationForBoat(@PathVariable int id) {
         return raceParticipationService.getRaceParticipationForBoat(id);
     }
+
+    @GetMapping("/raceparticipation/race/{raceId}")
+    public List<BoatsInRaceDTO> getAllBoatsInRace(@PathVariable int raceId) {
+        return raceParticipationService.findAllBoatsInRace(raceId);
+    }
+
+
 }

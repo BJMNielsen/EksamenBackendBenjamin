@@ -1,5 +1,6 @@
 package com.example.eksamenbackendbenjamin.service;
 
+import com.example.eksamenbackendbenjamin.dto.BoatsInRaceDTO;
 import com.example.eksamenbackendbenjamin.dto.RaceParticipationDTOShowRacesForOneBoat;
 import com.example.eksamenbackendbenjamin.model.RaceParticipation;
 import com.example.eksamenbackendbenjamin.model.SailRace;
@@ -37,6 +38,27 @@ public class RaceParticipationService {
             dto.setPoints(raceParticipation.getPoints());
 
             listOfDTO.add(dto);
+        }
+        return listOfDTO;
+    }
+
+    public List<BoatsInRaceDTO> findAllBoatsInRace(int raceId) {
+        List<RaceParticipation> list = raceParticipationRepository.findRaceParticipationBySailRaceId(raceId);
+        List<BoatsInRaceDTO> listOfDTO = new ArrayList<>();
+
+        for(RaceParticipation raceParticipation : list){
+            BoatsInRaceDTO boatsInRaceDTO = new BoatsInRaceDTO();
+
+            boatsInRaceDTO.setSailRaceId(raceParticipation.getSailRace().getId());
+            boatsInRaceDTO.setSailRaceName(raceParticipation.getSailRace().getName());
+            boatsInRaceDTO.setSailRaceDate(raceParticipation.getSailRace().getDato());
+
+            boatsInRaceDTO.setSailBoatId(raceParticipation.getSailBoat().getId());
+            boatsInRaceDTO.setSailBoatName(raceParticipation.getSailBoat().getName());
+            boatsInRaceDTO.setBoatType(raceParticipation.getSailBoat().getBoatType());
+            boatsInRaceDTO.setPoints(raceParticipation.getPoints());
+
+            listOfDTO.add(boatsInRaceDTO);
         }
         return listOfDTO;
     }
