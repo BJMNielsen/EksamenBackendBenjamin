@@ -16,6 +16,12 @@ import java.util.List;
 @Entity
 public class SailBoat {
 
+    public SailBoat(String name, String boatType, int points){
+        this.name = name;
+        this.boatType = boatType;
+        this.points = points;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sail_boat_id")

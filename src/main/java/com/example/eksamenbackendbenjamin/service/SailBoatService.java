@@ -35,11 +35,12 @@ public class SailBoatService {
     }
 
     // CREATE
-    public ResponseEntity<SailBoat> addSailBoat(RaceParticipationDTO raceParticipationDTO) {
+    public ResponseEntity<SailBoat> addSailBoat(SailBoat sailBoat) {
         // Først tjekker vi om sailBoat allerede eksistere, så vi ikke overrider den hvis den eksistere.
-        raceParticipationDTO.checkForMistakes();
-        SailBoat newSailBoat = raceParticipationDTO.getSailBoat();
-        List<SailRace> raceList = raceParticipationDTO.getListOfSailRaces();
+        //raceParticipationDTO.checkForMistakes();
+        //SailBoat newSailBoat = raceParticipationDTO.getSailBoat();
+        SailBoat newSailBoat = sailBoat;
+       /// List<SailRace> raceList = raceParticipationDTO.getListOfSailRaces();
 
         boolean exists = sailBoatRepository.existsById(newSailBoat.getId());
         if (exists) {
@@ -47,7 +48,7 @@ public class SailBoatService {
             throw new ResourceAlreadyExistsException("SailBoat with id: " + newSailBoat.getId() + " already exists and therefore can't be added.");
         }
         SailBoat newSailBoatSaved = sailBoatRepository.save(newSailBoat);
-        addRaceParticipationToSailBoat(raceList, newSailBoatSaved);
+        //addRaceParticipationToSailBoat(raceList, newSailBoatSaved);
         return new ResponseEntity<>(newSailBoatSaved, HttpStatus.OK);
     }
 

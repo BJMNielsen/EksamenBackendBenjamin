@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin
+
 @RestController
+@CrossOrigin
 public class RaceParticipationController {
 
     @Autowired

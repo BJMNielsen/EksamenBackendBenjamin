@@ -30,8 +30,8 @@ public class SailBoatController {
 
     // CREATE ÉN SEJLBÅD \\
     @PostMapping("/sailboat")
-    public ResponseEntity<SailBoat> addSailBoat(@RequestBody RaceParticipationDTO raceParticipationDTO) {
-        return sailBoatService.addSailBoat(raceParticipationDTO);
+    public ResponseEntity<SailBoat> addSailBoat(@RequestBody SailBoat sailBoat) {
+        return sailBoatService.addSailBoat(sailBoat);
     }
 
     // UPDATE ÉN SEJLBÅD \\
@@ -41,7 +41,7 @@ public class SailBoatController {
     }
 
     // SLET ÉN SEJLBÅD \\
-    @DeleteMapping("/sailboat'/{id}")
+    @DeleteMapping("/sailboat/{id}")
     public ResponseEntity<SailBoat> deleteSailBoat(@PathVariable int id) {
         return sailBoatService.deleteSailBoat(id);
     }
