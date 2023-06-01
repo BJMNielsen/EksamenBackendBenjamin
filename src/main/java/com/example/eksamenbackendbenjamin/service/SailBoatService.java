@@ -74,10 +74,13 @@ public class SailBoatService {
             // Hvis den ikke existere thrower vi en exception der bliver grebet i vores exception controller og lavet til et responseEntity object, som vores frontend også kan håndtere.
             throw new ResourceNotFoundException("Sailboat with id: " + sailBoat.getId() + " does not exist and therefore can't be updated");
         }
-        SailBoat oldSailBoat = getSailBoatById(sailBoat.getId());
-        sailBoat.setBoatType(oldSailBoat.getBoatType());
-        sailBoat.setName(oldSailBoat.getName());
-        sailBoat.setPoints(oldSailBoat.getPoints() + sailBoat.getPoints());
+
+        if(sailBoat.getName() == null){
+            SailBoat oldSailBoat = getSailBoatById(sailBoat.getId());
+            sailBoat.setBoatType(oldSailBoat.getBoatType());
+            sailBoat.setName(oldSailBoat.getName());
+            sailBoat.setPoints(oldSailBoat.getPoints() + sailBoat.getPoints());
+        }
 
         // Hvis Sailboat eksistere, tager vi den nye info fra vores requestbody og overwriter vores sailboat nu med den nye info, dvs vi saver oveni en allerede eksisterende sailboat, bare med ny info.
         SailBoat newSailBoat = sailBoatRepository.save(sailBoat);
