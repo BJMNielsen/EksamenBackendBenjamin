@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "tbl_sail_boats")
 public class SailBoat {
 
     public SailBoat(String name, String boatType, int points){
@@ -27,10 +28,13 @@ public class SailBoat {
     @Column(name = "sail_boat_id")
     private int id;
 
+    @Column(name = "sail_boat_name")
     private String name;
 
+    @Column(name = "sail_boat_type")
     private String boatType;
 
+    @Column(name = "sail_boat_points")
     private int points;
 
     // One SailBoat to many RaceParticipations

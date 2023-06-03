@@ -1,8 +1,6 @@
 package com.example.eksamenbackendbenjamin.controller;
 
-import com.example.eksamenbackendbenjamin.model.SailBoat;
 import com.example.eksamenbackendbenjamin.model.SailRace;
-import com.example.eksamenbackendbenjamin.service.SailBoatService;
 import com.example.eksamenbackendbenjamin.service.SailRaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +17,24 @@ public class SailRaceController {
 
     // SKAF ALLE SEJLRACES \\
     @GetMapping("/sailraces")
-    public List<SailRace> getAllSailRaces(){
+    public List<SailRace> getAllSailRaces() {
         return sailRaceService.getAllSailRaces();
     }
 
     @GetMapping("/sailrace/{id}")
     public SailRace getSailRace(@PathVariable int id) {
         return sailRaceService.getSailRaceById(id);
+    }
+
+
+    @PostMapping("/sailrace")
+    public ResponseEntity<SailRace> addSailRace(@RequestBody SailRace sailRace) {
+        return sailRaceService.addSailRace(sailRace);
+    }
+
+    @PutMapping("/sailrace")
+    public ResponseEntity<SailRace> updateSailRace(@RequestBody SailRace sailRace) {
+        return sailRaceService.updateSailRace(sailRace);
     }
 
     // SLET ET RACE \\

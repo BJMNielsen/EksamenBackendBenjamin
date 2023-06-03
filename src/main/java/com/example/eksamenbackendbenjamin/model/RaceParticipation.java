@@ -12,20 +12,23 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "tbl_participants")
 public class RaceParticipation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "participant_id")
     private int id;
 
     @ManyToOne // Many Races to one sailboat
-    @JoinColumn(name = "sail_boat_id", referencedColumnName = "sail_boat_id")
+    @JoinColumn(name = "participant_boat_id", referencedColumnName = "sail_boat_id")
     private SailBoat sailBoat;
 
     @ManyToOne // Many Races to one sailRace
-    @JoinColumn(name = "sail_race_id", referencedColumnName = "sail_race_id")
+    @JoinColumn(name = "participant_race_id", referencedColumnName = "sail_race_id")
     private SailRace sailRace;
 
+    @Column(name = "participant_points")
     private int points;
 
 
