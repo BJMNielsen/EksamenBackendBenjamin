@@ -38,6 +38,8 @@ public class RaceParticipationService {
         for (RaceParticipation raceParticipation : list) {
             RaceParticipationDTOShowRacesForOneBoat dto = new RaceParticipationDTOShowRacesForOneBoat();
 
+            dto.setRaceParticipationId(raceParticipation.getId());
+
             dto.setBoatId(raceParticipation.getSailBoat().getId());
             dto.setBoatName(raceParticipation.getSailBoat().getName());
 

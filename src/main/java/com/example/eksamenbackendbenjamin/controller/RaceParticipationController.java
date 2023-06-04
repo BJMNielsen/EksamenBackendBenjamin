@@ -44,6 +44,7 @@ public class RaceParticipationController {
     public ResponseEntity<RaceParticipation> deleteRaceParticipation(@PathVariable int id) {
         return raceParticipationService.deleteRaceParticipation(id);
     }
+
     @DeleteMapping("/raceparticipation/{raceid}/{boatid}")
     public ResponseEntity<RaceParticipation> deleteRaceParticipation(@PathVariable int raceid, @PathVariable int boatid) {
         return raceParticipationService.deleteRaceParticipationBySailBoatIdAndSailRaceId(raceid, boatid);

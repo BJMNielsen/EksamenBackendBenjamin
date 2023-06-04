@@ -11,6 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class RaceParticipationDTOShowRacesForOneBoat {
 
+    private int raceParticipationId;
+
     private int boatId;
 
     private String boatName;
