@@ -48,8 +48,8 @@ public class StartupDataConfig implements ApplicationRunner{
 
     //Skriv en metode der kan oprette en sejlbåd som deltager i alle kapsejladser.
     public void createSailBoatInEveryRace(SailBoat sailBoat){
-        SailBoat newSailBoat = sailBoat;
-        sailBoatRepository.save(newSailBoat);
+
+        SailBoat newSailBoat = sailBoatRepository.save(sailBoat);
 
         List<SailRace> allRaces = sailRaceRepository.findAll();
 
@@ -59,8 +59,6 @@ public class StartupDataConfig implements ApplicationRunner{
             raceParticipation.setSailRace(race);
             raceParticipationRepository.save(raceParticipation);
         }
-
-
     }
 
     public void createRaceParticipation(SailBoat sailBoat){

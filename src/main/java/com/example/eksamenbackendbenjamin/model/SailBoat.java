@@ -38,5 +38,10 @@ public class SailBoat {
         this.name = name;
         this.boatType = boatType;
     }
+    public SailBoat(int id, String name, String boatType){
+        this.id = id;
+        this.name = name;
+        this.boatType = boatType;
+    }
 
 }
