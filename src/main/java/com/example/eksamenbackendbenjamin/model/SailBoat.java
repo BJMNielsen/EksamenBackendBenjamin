@@ -17,12 +17,6 @@ import java.util.List;
 @Table(name = "tbl_sail_boats")
 public class SailBoat {
 
-    public SailBoat(String name, String boatType, int points){
-        this.name = name;
-        this.boatType = boatType;
-        this.points = points;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sail_boat_id")
@@ -33,9 +27,6 @@ public class SailBoat {
 
     @Column(name = "sail_boat_type")
     private String boatType;
-
-    @Column(name = "sail_boat_points")
-    private int points;
 
     // One SailBoat to many RaceParticipations
     // Vi mapper til vores variabel sailBoat inde i RaceParticipation

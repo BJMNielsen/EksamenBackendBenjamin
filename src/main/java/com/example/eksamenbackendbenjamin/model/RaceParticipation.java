@@ -1,6 +1,6 @@
 package com.example.eksamenbackendbenjamin.model;
 
-import com.example.eksamenbackendbenjamin.exception.ResourceNotFoundException;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,6 +30,5 @@ public class RaceParticipation {
 
     @Column(name = "participant_points")
     private int points;
-
 
 }

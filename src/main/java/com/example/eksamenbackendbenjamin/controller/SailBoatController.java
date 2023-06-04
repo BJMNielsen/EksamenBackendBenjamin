@@ -1,6 +1,5 @@
 package com.example.eksamenbackendbenjamin.controller;
 
-import com.example.eksamenbackendbenjamin.dto.RaceParticipationDTO;
 import com.example.eksamenbackendbenjamin.model.SailBoat;
 import com.example.eksamenbackendbenjamin.service.SailBoatService;
 import org.springframework.beans.factory.annotation.Autowired;

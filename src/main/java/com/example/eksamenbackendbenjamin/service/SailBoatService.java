@@ -1,11 +1,8 @@
 package com.example.eksamenbackendbenjamin.service;
 
-import com.example.eksamenbackendbenjamin.dto.RaceParticipationDTO;
 import com.example.eksamenbackendbenjamin.exception.ResourceAlreadyExistsException;
 import com.example.eksamenbackendbenjamin.exception.ResourceNotFoundException;
-import com.example.eksamenbackendbenjamin.model.RaceParticipation;
 import com.example.eksamenbackendbenjamin.model.SailBoat;
-import com.example.eksamenbackendbenjamin.model.SailRace;
 import com.example.eksamenbackendbenjamin.repository.RaceParticipationRepository;
 import com.example.eksamenbackendbenjamin.repository.SailBoatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -79,7 +75,6 @@ public class SailBoatService {
             SailBoat oldSailBoat = getSailBoatById(sailBoat.getId());
             sailBoat.setBoatType(oldSailBoat.getBoatType());
             sailBoat.setName(oldSailBoat.getName());
-            sailBoat.setPoints(oldSailBoat.getPoints() + sailBoat.getPoints());
         }
 
         // Hvis Sailboat eksistere, tager vi den nye info fra vores requestbody og overwriter vores sailboat nu med den nye info, dvs vi saver oveni en allerede eksisterende sailboat, bare med ny info.

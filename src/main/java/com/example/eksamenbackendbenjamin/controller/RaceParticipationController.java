@@ -1,11 +1,8 @@
 package com.example.eksamenbackendbenjamin.controller;
 
-import com.example.eksamenbackendbenjamin.dto.BoatsInRaceDTO;
-import com.example.eksamenbackendbenjamin.dto.RaceParticipationDTOShowRacesForOneBoat;
+
 import com.example.eksamenbackendbenjamin.model.RaceParticipation;
-import com.example.eksamenbackendbenjamin.model.SailBoat;
 import com.example.eksamenbackendbenjamin.service.RaceParticipationService;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,19 +22,24 @@ public class RaceParticipationController {
         return raceParticipationService.getAllRaceParticipations();
     }
 
-    @GetMapping("/raceparticipation/{id}")
-    public List<RaceParticipationDTOShowRacesForOneBoat> getRaceparticipationForBoat(@PathVariable int id) {
-        return raceParticipationService.getRaceParticipationForBoat(id);
+    @GetMapping("/raceparticipations/boat/{boatid}")
+    public List<RaceParticipation> getRaceparticipationByBoatId(@PathVariable int boatid) {
+        return raceParticipationService.getRaceparticipationByBoatId(boatid);
     }
-
-    @GetMapping("/boats/race/{raceId}")
-    public List<BoatsInRaceDTO> getAllBoatsInRace(@PathVariable int raceId) {
-        return raceParticipationService.findAllBoatsInRace(raceId);
+// raceparticipations/race/
+    @GetMapping("/raceparticipations/race/{raceId}")
+    public List<RaceParticipation> getAllRaceparticipationsByRaceId(@PathVariable int raceId) {
+        return raceParticipationService.getAllRaceparticipationsByRaceId(raceId);
     }
 
     @PostMapping("/raceparticipation")
-    public ResponseEntity<RaceParticipation> addRaceParticipation(@RequestBody RaceParticipation raceParticipation){
+    public ResponseEntity<RaceParticipation> addRaceParticipation(@RequestBody RaceParticipation raceParticipation) {
         return raceParticipationService.addRaceParticipation(raceParticipation);
+    }
+
+    @PutMapping("/raceparticipation")
+    public ResponseEntity<RaceParticipation> updateRaceParticipation(@RequestBody RaceParticipation raceParticipation) {
+        return raceParticipationService.updateRaceParticipation(raceParticipation);
     }
 
     @DeleteMapping("/raceparticipation/{id}")
@@ -49,8 +51,6 @@ public class RaceParticipationController {
     public ResponseEntity<RaceParticipation> deleteRaceParticipation(@PathVariable int raceid, @PathVariable int boatid) {
         return raceParticipationService.deleteRaceParticipationBySailBoatIdAndSailRaceId(raceid, boatid);
     }
-
-
 
 
 }
