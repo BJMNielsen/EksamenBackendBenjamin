@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tbl_sail_race")
+@Table(name = "tbl_sail_races")
 public class SailRace {
 
     public SailRace(String name, LocalDate sailRaceDate){
