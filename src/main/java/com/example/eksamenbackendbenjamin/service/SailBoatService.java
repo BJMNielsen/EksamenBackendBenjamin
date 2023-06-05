@@ -18,8 +18,7 @@ public class SailBoatService {
     @Autowired
     SailBoatRepository sailBoatRepository;
 
-    @Autowired
-    RaceParticipationRepository raceParticipationRepository;
+
 
     public List<SailBoat> getAllSailBoats() {
         return sailBoatRepository.findAll();
